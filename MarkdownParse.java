@@ -18,11 +18,7 @@ public class MarkdownParse {
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
                 break;
             }
-            // Checks if link is an image
-            if (imageCheck + 1 == nextOpenBracket) {
-                break;
-            }
-            if (nextCloseBracket + 1 == openParen && nextOpenBracket + 1 != nextCloseBracket) {
+            if (!(imageCheck + 1 == nextOpenBracket) && nextCloseBracket + 1 == openParen && nextOpenBracket + 1 != nextCloseBracket) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             currentIndex = closeParen + 1;
