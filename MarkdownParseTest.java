@@ -26,13 +26,20 @@ public class MarkdownParseTest {
 
     @Test
     public void markdownTest2() throws IOException {
-        String contents = Files.readString(Path.of("./test-file7.md"));
+        String contents = Files.readString(Path.of("./test-file6.md"));
         List<String> expect = List.of();
         assertEquals(MarkdownParse.getLinks(contents), expect);
     }
 
     @Test
     public void markdownTest3() throws IOException {
+        String contents = Files.readString(Path.of("./test-file7.md"));
+        List<String> expect = List.of();
+        assertEquals(MarkdownParse.getLinks(contents), expect);
+    }
+
+    @Test
+    public void markdownTest4() throws IOException {
         String contents = Files.readString(Path.of("./test-file8.md"));
         List<String> expect = List.of();
         assertEquals(MarkdownParse.getLinks(contents), expect);
