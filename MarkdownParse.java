@@ -10,18 +10,17 @@ public class MarkdownParse {
         // the next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
-            int foundExclaim = markdown.indexOf("!", currentIndex);
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
-            if (foundExclaim != -1 || foundExclaim + 1 == nextOpenBracket) {
-                nextOpenBracket = markdown.indexOf("[", foundExclaim);
-            }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
                 break;
             }
-            if (foundExclaim == -1 && nextCloseBracket + 1 == openParen && nextOpenBracket + 1 != nextCloseBracket) {
+            if (markdown.charAt(nextCloseBracket - 1) == '!') {
+
+            }
+            else if (nextCloseBracket + 1 == openParen && nextOpenBracket + 1 != nextCloseBracket) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             currentIndex = closeParen + 1;
