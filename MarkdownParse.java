@@ -11,10 +11,11 @@ public class MarkdownParse {
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
             int foundExclaim = markdown.indexOf("!", currentIndex);
+            int nextOpenBracket = -1;
             if (foundExclaim == -1) {
-                int nextOpenBracket = markdown.indexOf("[", currentIndex);
+                nextOpenBracket = markdown.indexOf("[", currentIndex);
             } else {
-                int nextOpenBracket = markdown.indexOf("[", foundExclaim);
+                nextOpenBracket = markdown.indexOf("[", foundExclaim);
             }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
