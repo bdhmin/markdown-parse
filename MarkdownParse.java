@@ -17,8 +17,8 @@ public class MarkdownParse {
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
                 break;
             }
-            if (markdown.charAt(nextCloseBracket - 1) == '!') {
-
+            if (markdown.charAt(nextOpenBracket - 1) == '!') {
+                // Do nothing.
             }
             else if (nextCloseBracket + 1 == openParen && nextOpenBracket + 1 != nextCloseBracket) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
